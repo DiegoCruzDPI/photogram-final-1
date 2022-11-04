@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   #Index/Show
   get("/", { :controller => "user_authentication", :action => "index"})
 
+  get("/users", { :controller => "user_authentication", :action => "index"})
+
   # SIGN UP FORM
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })        
   # CREATE RECORD

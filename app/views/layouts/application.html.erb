@@ -18,7 +18,7 @@
   <nav>
       <ul>
         <li>
-          <a href="/">All users</a>
+          <a href="/users">All users</a>
         </li>
         <li>
           <a href="/photos">All public photos</a>
@@ -32,7 +32,7 @@
           <a href="/user_sign_up">Sign Up</a>
         </li>
         <% else %>
-        <li><%= session.fetch(:user_id)%></li>
+        <li><a href="/edit_user_profile"><%= @current_user.username%></a></li>
         <li>
           <a href="/user_sign_out">Sign Out</a>
         </li>
