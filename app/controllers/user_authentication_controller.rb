@@ -8,6 +8,12 @@ class UserAuthenticationController < ApplicationController
     render({ :template => "user_authentication/index.html.erb"})
   end
 
+  def show
+    the_user = params.fetch("user_id")
+    @user = User.where({:username => the_user}).at(0)
+    render({ :template => "user_authentication/show.html.erb"})
+  end
+
   def sign_in_form
     render({ :template => "user_authentication/sign_in.html.erb" })
   end
