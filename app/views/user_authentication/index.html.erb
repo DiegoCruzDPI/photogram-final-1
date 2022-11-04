@@ -1,0 +1,38 @@
+<h1>List of users</h1>
+
+<table border="1">
+  <tr>
+    <th>
+      Username
+    </th>
+
+    <th>
+      Private?
+    </th>
+
+    <th></th>
+
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td>
+      <%= user.username %>
+    </td>
+
+    <td>
+       <!--Write logic for private or not private-->
+    </td>
+
+    <td>
+      <button>Make me work</button>
+    </td>
+
+    <td>
+      <a href = "">Show details needs link still!</a>
+    </td>
+  </tr>
+  
+  <% end %>
+</table>

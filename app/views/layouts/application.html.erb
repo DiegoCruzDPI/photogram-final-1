@@ -15,6 +15,31 @@
   </head>
 
   <body>
+  <nav>
+      <ul>
+        <li>
+          <a href="/">All users</a>
+        </li>
+        <li>
+          <a href="/photos">All public photos</a>
+        </li>
+
+        <% if @current_user == nil %>
+        <li>
+          <a href="/user_sign_in">Sign in</a>
+        </li>
+        <li>
+          <a href="/user_sign_up">Sign Up</a>
+        </li>
+        <% else %>
+        <li><%= session.fetch(:user_id)%></li>
+        <li>
+          <a href="/user_sign_out">Sign Out</a>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+
     <%= yield %>
   </body>
 </html>
