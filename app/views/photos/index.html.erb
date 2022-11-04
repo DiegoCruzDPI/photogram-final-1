@@ -6,69 +6,44 @@
   </div>
 </div>
 
-<hr>
-
+<% if @current_user == nil  %>
+<!--Nothing is needed here for the form to needed to be rendered-->
+<% else  %>
 <div>
   <div>
-    <h2>
-      Add a new photo
-    </h2>
-
     <form action="/insert_photo" method="post">
-      <div>
-        <label for="caption_box">
-          Caption
-        </label>
-
-        <textarea id="caption_box" name="query_caption" rows="3"></textarea>
-      </div>
-
-      <div>
-        <label for="comments_count_box">
-          Comments count
-        </label>
-
-        <input type="text" id="comments_count_box" name="query_comments_count">
-      </div>
-
-      <div>
+    
         <label for="image_box">
           Image
         </label>
 
-        <input type="text" id="image_box" name="query_image">
-      </div>
-
-      <div>
-        <label for="likes_count_box">
-          Likes count
+        <input type="file" id="image_box" name="query_image">
+      
+      
+    
+        <label for="caption_box">
+          Caption
         </label>
 
-        <input type="text" id="likes_count_box" name="query_likes_count">
-      </div>
+        <textarea id="caption_box" name="query_caption" rows="3" placeholder="Enter a caption for the photo..."></textarea>
+      
 
-      <div>
-        <label for="owner_id_box">
-          Owner
-        </label>
-
-        <input type="text" id="owner_id_box" name="query_owner_id">
-      </div>
 
       <button>
-        Create photo
+        Add photo
       </button>
     </form>
   </div>
 </div>
+<%end  %>
 
-<hr>
 <div>
   <div>
     <table border="1">
       <tr>
+
         <th>
-          ID
+          Image
         </th>
 
         <th>
@@ -76,27 +51,15 @@
         </th>
 
         <th>
-          Comments count
-        </th>
-
-        <th>
-          Image
-        </th>
-
-        <th>
-          Likes count
-        </th>
-
-        <th>
           Owner
         </th>
 
         <th>
-          Created at
+          Posted
         </th>
 
         <th>
-          Updated at
+          Likes 
         </th>
 
         <th>
@@ -105,24 +68,13 @@
 
       <% @list_of_photos.each do |a_photo| %>
       <tr>
-        <td>
-          <%= a_photo.id %>
-        </td>
-
-        <td>
-          <%= a_photo.caption %>
-        </td>
-
-        <td>
-          <%= a_photo.comments_count %>
-        </td>
 
         <td>
           <%= a_photo.image %>
         </td>
 
         <td>
-          <%= a_photo.likes_count %>
+          <%= a_photo.caption %>
         </td>
 
         <td>
@@ -132,8 +84,9 @@
         <td>
           <%= time_ago_in_words(a_photo.created_at) %> ago
         </td>
+
         <td>
-          <%= time_ago_in_words(a_photo.updated_at) %> ago
+          <%= a_photo.likes_count %>
         </td>
 
         <td>
