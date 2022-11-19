@@ -50,7 +50,7 @@
         Fans
       </dt>
       <dd>
-        This is the infamous fans_list in action
+        <%= @the_photo.name_of_fans %>
       </dd>
 
       <dt>
@@ -69,9 +69,27 @@
     <h2>
       Comments
     </h2>
-
-
     <!--Add code for that renders all comments here-->
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
+
+  <tr>
+
+    <th><%=  %></th>
+    <th><%=  %></th>
+    <th><%=  %></th>
+  </tr>
+
+</table>
+
+
+
+
+
 
     <h3>Add a new comment</h3>
     <form action="/modify_photo/<%= @the_photo.id %>"  method="post" >
